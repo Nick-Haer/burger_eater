@@ -4,29 +4,34 @@ const orm = require(`../models/burger`);
 
 const burger = {
 
-showAll () {
+selectAll(cb) {
 
 
- orm.selectAll()
+ orm.selectAll(function(data) {
+     cb(data)
+ })
 
-
-
-},
-
-
-addBurger (burgerName) {
-
-
-orm.insertOne(burgerName)
 
 
 },
 
-eatBurger (burger_id) {
+
+insertOne (burger_name, cb) {
 
 
-orm.updateOne(burger_id)
+orm.insertOne(burger_name, function(data) {
+    cb(data)
+})
 
+
+},
+
+updateOne (id, cb) {
+
+
+orm.updateOne(id, function (data) {
+    cb(data)
+})
 
 
 }
