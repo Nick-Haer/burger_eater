@@ -19,8 +19,8 @@ selectAll (tableName, cb) {
 },
 
 
-insertOne (tableName, columnNameArr, burger_name, devouredStatus, cb) {
-    connection.query(`INSERT INTO ?? (??) VALUES (?, ?);`, [tableName, columnNameArr.toString(), burger_name, devouredStatus], (err, data) => {
+insertOne (tableName, columnArr, valuesArr, cb) {
+    connection.query(`INSERT INTO ?? (??) VALUES (?, ?);`, [tableName, columnArr, valuesArr], (err, data) => {
         if (err) {
             throw err;
         }

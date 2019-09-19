@@ -1,0 +1,60 @@
+#header {
+    color: red;
+    text-align: center;
+}
+
+#test {
+    font-size: 30px;
+    background-color: blanchedalmond;
+}
+
+.burger-description {
+    text-align: center;
+    width: 30%;
+    padding: 10px;
+    display: inline-block;
+    background-color: antiquewhite;
+}
+
+.burgerblock {
+    display: inline-block;
+    width: 49%;
+}
+
+.burgerlist {
+    list-style: none;
+}
+
+#left-side-list {
+text-align: right;
+}
+
+body {
+    background-color: #f7931e;
+}
+
+#enter-burger {
+    display: block;
+    margin: 0 auto;
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+#submit-button {
+    display: block;
+    margin: 0 auto;
+    background-color: lightblue;
+    padding: 10px;
+    width: 100px;
+}
+
+#prompt-box {
+    text-align: center;
+    font-size: 1.5rem;
+    color: whitesmoke;
+}
+
+#main-image {
+    display: block;
+    margin: 0 auto;
+}

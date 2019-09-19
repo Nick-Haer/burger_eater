@@ -1,4 +1,7 @@
-const express =  require(`express`);
+const express = require(`express`);
+
+
+const app = express()
 
 
 
@@ -9,27 +12,40 @@ const router = express.Router()
 
 
 
-
 router.get(`/`, (req, res) => {
-    burger.selectAll(function(data) {
-        res.json(data) 
+    burger.selectAll(function (data) {
+
+
+        res.render("index",
+            {
+                burgers: data
+            }
+        )
         //need to render
     })
 })
 
 
-router.post(`/newBurger`, (req, res) => {
+router.post(`/api/burgers`, (req, res) => {
 
-    burger.insertOne(["burger_name", "devoured"], burger_name, false, function (data) {
-        res.json(data)
+    let burger_name = req.body.data
+
+
+    // console.log(Object.keys(burger_name))
+    // console.log(burger_name)
+
+    burger.insertOne(["burger_name", "devoured"], [burger_name, false], function (data) {
+        res.status(201).end()
     })
 
 })
 
 router.put(`/ateBurger`, (req, res) => {
 
-    burger.updateOne("devoured", false,  id, function (data) {
-        res.json(data)
+    let id = req.body.data
+
+    burger.updateOne("devoured", true, id, function (data) {
+        res.status(204).end()
     })
 })
 

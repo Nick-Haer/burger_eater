@@ -16,10 +16,10 @@ const burger = {
     },
 
 
-    insertOne(columnNameArr, burger_name, devouredStatus, cb) {
+    insertOne(columnArr, valuesArr, cb) {
 
 
-        orm.insertOne(`burgers`, columnNameArr, burger_name, devouredStatus, function (data) {
+        orm.insertOne(`burgers`, columnArr, valuesArr, function (data) {
             cb(data)
         })
 
