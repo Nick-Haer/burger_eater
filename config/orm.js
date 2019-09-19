@@ -7,8 +7,8 @@ const connection = require(`./connection`)
 const orm = {
 
 
-selectAll (cb) {
-    connection.query(`SELECT * FROM burgers;` , (err, data) => {
+selectAll (tableName, cb) {
+    connection.query(`SELECT * FROM ??;` , [tableName], (err, data) => {
         if (err) {
             throw err;
         }
@@ -19,8 +19,8 @@ selectAll (cb) {
 },
 
 
-insertOne (burger_name, cb) {
-    connection.query(`INSERT INTO burgers (burger_name, devoured) VALUES (?, false);`, [burger_name], (err, data) => {
+insertOne (tableName, columnNameArr, burger_name, devouredStatus, cb) {
+    connection.query(`INSERT INTO ?? (??) VALUES (?, ?);`, [tableName, columnNameArr.toString(), burger_name, devouredStatus], (err, data) => {
         if (err) {
             throw err;
         }
@@ -31,8 +31,8 @@ insertOne (burger_name, cb) {
     })
 },
 
-updateOne (id, cb) {
-    connection.query(`UPDATE burgers SET devoured = false WHERE id = ? `, [id], (err, data) => {
+updateOne (tableName, columnName, devouredStatus, id, cb) {
+    connection.query(`UPDATE ?? SET ?? = ? WHERE id = ? `, [tableName, columnName, devouredStatus, id], (err, data) => {
         if (err) {
             throw err;
         }

@@ -1,40 +1,40 @@
-const orm = require(`../models/burger`);
+const orm = require(`../config/orm`);
 
 
 
 const burger = {
 
-selectAll(cb) {
+    selectAll(cb) {
 
 
- orm.selectAll(function(data) {
-     cb(data)
- })
+        orm.selectAll('burgers', function (data) {
+            cb(data)
+        })
 
 
 
-},
+    },
 
 
-insertOne (burger_name, cb) {
+    insertOne(columnNameArr, burger_name, devouredStatus, cb) {
 
 
-orm.insertOne(burger_name, function(data) {
-    cb(data)
-})
+        orm.insertOne(`burgers`, columnNameArr, burger_name, devouredStatus, function (data) {
+            cb(data)
+        })
 
 
-},
+    },
 
-updateOne (id, cb) {
-
-
-orm.updateOne(id, function (data) {
-    cb(data)
-})
+    updateOne(columnName, devouredStatus, id, cb) {
 
 
-}
+        orm.updateOne(`burgers`, columnName, devouredStatus, id, function (data) {
+            cb(data)
+        })
+
+
+    }
 
 
 

@@ -2,7 +2,7 @@ const express =  require(`express`);
 
 
 
-const orm = require(`../models/burger`)
+const burger = require(`../models/burger`)
 
 
 const router = express.Router()
@@ -11,23 +11,25 @@ const router = express.Router()
 
 
 router.get(`/`, (req, res) => {
-    orm.selectAll(function(data) {
-        res.render(``, data)
+    burger.selectAll(function(data) {
+        res.json(data) 
+        //need to render
     })
 })
 
 
 router.post(`/newBurger`, (req, res) => {
-    let burger_name = res.body.burger_name
-    orm.insertOne(burger_name, function (data) {
-        res.render(``, data)
+
+    burger.insertOne(["burger_name", "devoured"], burger_name, false, function (data) {
+        res.json(data)
     })
 
 })
 
 router.put(`/ateBurger`, (req, res) => {
-    orm.updateOne(id, function (data) {
-        res.render(``, data)
+
+    burger.updateOne("devoured", false,  id, function (data) {
+        res.json(data)
     })
 })
 
