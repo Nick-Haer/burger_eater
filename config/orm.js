@@ -20,7 +20,7 @@ selectAll (tableName, cb) {
 
 
 insertOne (tableName, columnArr, valuesArr, cb) {
-    connection.query(`INSERT INTO ?? (??) VALUES (?, ?);`, [tableName, columnArr, valuesArr], (err, data) => {
+    connection.query(`INSERT INTO ?? (??) VALUES (?);`, [tableName, columnArr, valuesArr], (err, data) => {
         if (err) {
             throw err;
         }
